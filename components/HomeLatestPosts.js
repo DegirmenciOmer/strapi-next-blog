@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import PostPreview from './PostPreview'
 
-const HomeLatestPosts = ({ posts: { data } }) => {
-  //posts.data[0].attributes.content
+const HomeLatestPosts = ({ posts }) => {
+  const [firstFivePosts, setFirstFivePosts] = useState([])
+  useEffect(() => {
+    setFirstFivePosts(posts.slice(0, 5))
+  }, [posts])
+
   return (
     <div>
-      {data?.map((item) => (
-        <div key={item.id}>
-          <h2>{item.attributes.title}</h2>
-          <p>{item.attributes.content}</p>
-        </div>
+      <h2>Latest Posts</h2>
+      {firstFivePosts?.map((post) => (
+        <PostPreview key={post.id} post={post} />
       ))}
     </div>
   )

@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import axios from 'axios'
 import styles from '../styles/Home.module.css'
 import HomeHeader from './../components/HomeHeader'
 import HomeLatestPosts from '../components/HomeLatestPosts'
 
 export default function Home({ posts }) {
-  console.log(posts.data[0].attributes.content)
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +14,7 @@ export default function Home({ posts }) {
       </Head>
       {/* <h1>{props.postsRes}</h1> */}
       <HomeHeader />
-      <HomeLatestPosts posts={posts} />
+      <HomeLatestPosts posts={posts.data} />
     </div>
   )
 }
