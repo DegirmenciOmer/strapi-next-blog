@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 const Navbar = () => {
   const router = useRouter()
-  console.error({ router })
   return (
     <nav>
       <a>DevBlog</a>
