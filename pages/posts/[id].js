@@ -1,12 +1,15 @@
 import axios from 'axios'
-import React from 'react'
+import MarkdownIt from 'markdown-it'
 
 const SinglePost = ({ post: { data } }) => {
+  const md = new MarkdownIt()
+  const htmlContent = md.render(data?.attributes.content)
+
   return (
     <div key={data?.id}>
       <h3>{data?.attributes.title}</h3>
       <p>{data?.attributes.description}</p>
-      <p>{data?.attributes.content}</p>
+      <p dangerouslySetInnerHTML={{ __html: htmlContent }}></p>
     </div>
   )
 }
