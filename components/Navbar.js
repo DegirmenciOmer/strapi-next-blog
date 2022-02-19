@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Navbar = () => {
   const router = useRouter()
   return (
-    <nav>
+    <nav className='nav-bar'>
       <a>DevBlog</a>
       <ul>
         <li>

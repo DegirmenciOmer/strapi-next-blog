@@ -9,7 +9,7 @@ const Posts = ({ posts }) => {
 export default Posts
 
 export async function getStaticProps() {
-  const postsRes = await axios.get('http://localhost:1337/api/posts/')
+  const postsRes = await axios.get('http://localhost:1337/api/articles/')
   return {
     props: {
       posts: postsRes.data,

@@ -20,7 +20,7 @@ export default function Home({ posts }) {
 }
 
 export async function getServerSideProps(context) {
-  const postsRes = await axios.get('http://localhost:1337/api/posts/')
+  const postsRes = await axios.get('http://localhost:1337/api/articles/')
   return {
     props: {
       posts: postsRes.data, // will be passed to the page component as props

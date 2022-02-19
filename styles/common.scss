@@ -1,0 +1,28 @@
+
+body{
+    background-color: green;
+    margin: unset;
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.title{
+    
+    color: inherit;
+    cursor: pointer;
+}
+
+.container{
+    background-color: red;
+    display: grid;
+   place-items: center;
+}

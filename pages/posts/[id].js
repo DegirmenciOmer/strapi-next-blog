@@ -7,7 +7,7 @@ const SinglePost = ({ post: { data } }) => {
 
   return (
     <div key={data?.id}>
-      <h3>{data?.attributes.title}</h3>
+      <h3 className='title'>{data?.attributes.title}</h3>
       <p>{data?.attributes.description}</p>
       <p dangerouslySetInnerHTML={{ __html: htmlContent }}></p>
     </div>
@@ -18,7 +18,7 @@ export default SinglePost
 
 export async function getStaticProps({ params }) {
   const postRes = await axios.get(
-    `http://localhost:1337/api/posts/${params.id}`
+    `http://localhost:1337/api/articles/${params.id}`
   )
   return {
     props: {
@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await axios.get('http://localhost:1337/api/posts/')
+  const { data } = await axios.get('http://localhost:1337/api/articles/')
 
   const paths = data.data.map((post) => {
     return { params: { id: post.id.toString() } }
